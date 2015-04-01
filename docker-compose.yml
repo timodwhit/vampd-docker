@@ -1,0 +1,22 @@
+#Build a data volume container with the chef cookbooks on it.
+chefdata:
+  build: chef
+
+# Attach the image containing the Chef installation
+chef:
+  name: chef
+  image: releasequeue/chef-client:12.0.3-1
+  # Override default command to use this container as a volume container
+  command: /bin/true
+
+# Build the application container using Chef and the cookbooks on the attached volumes
+vampd:
+  name: vampd
+  build: .
+  volumes_from:
+   - chefdata
+   - chef
+  environment:
+    PATH: "/opt/chef/bin:$PATH"
+  entrypoint: "/opt/chef/bin/chef-client"
+  command: "-c /tmp/chef/solo.rb -z -j /tmp/chef/solo.json"
