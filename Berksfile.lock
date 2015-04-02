@@ -1,8 +1,11 @@
 DEPENDENCIES
   build-essential (~> 1.4.2)
+  chef-solo-search (~> 0.5.1)
   dmg (~> 2.0.8)
   drupal
-    path: ../drupal
+    git: https://github.com/vampd/drupal
+    revision: 7abbf350f4a64f410bf23fa2d273779c94f829ca
+    tag: 4.0.7
   drupal-frontend
     git: https://github.com/vampd/drupal-frontend
     revision: d94e35bbc761f84a1fa11a981c324b12b08a55f8
@@ -24,11 +27,9 @@ GRAPH
   apt (2.3.10)
   aws (2.6.5)
   build-essential (1.4.4)
+  chef-solo-search (0.5.1)
   chef-sugar (3.1.0)
   chef_handler (1.1.6)
-  composer (2.0.0)
-    php (>= 0.0.0)
-    windows (>= 0.0.0)
   curl (2.0.1)
   database (1.5.2)
     aws (>= 0.0.0)
@@ -39,7 +40,6 @@ GRAPH
   drupal (4.0.7)
     apache2 (~> 1.8.14)
     apt (~> 2.3.0)
-    composer (~> 2.0.0)
     database (~> 1.5.2)
     git (>= 0.0.0)
     mysql (~> 4.0.10)

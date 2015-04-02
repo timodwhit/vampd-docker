@@ -11,7 +11,6 @@
     "recipe[sudo]",
     "recipe[git]",
     "recipe[mysql::server]",
-    "recipe[drupal::ssh]",
     "recipe[drupal::apache]",
     "recipe[drupal::php]",
     "recipe[drupal::drush]",

@@ -5,7 +5,7 @@ chefdata:
 # Attach the image containing the Chef installation
 chef:
   name: chef
-  image: releasequeue/chef-client:12.0.3-1
+  build: chef/docker
   # Override default command to use this container as a volume container
   command: /bin/true
 
@@ -17,6 +17,6 @@ vampd:
    - chefdata
    - chef
   environment:
-    PATH: "/opt/chef/bin:$PATH"
-  entrypoint: "/opt/chef/bin/chef-client"
-  command: "-c /tmp/chef/solo.rb -z -j /tmp/chef/solo.json"
+    PATH: "/opt/chef/bin/chef-solo:$PATH"
+  entrypoint: "/opt/chef/bin/chef-solo"
+  command: "-c /tmp/chef/solo.rb -j /tmp/chef/solo.json"

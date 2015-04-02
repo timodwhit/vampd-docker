@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:12.04.5
 
 # Configure your application here
 
